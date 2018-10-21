@@ -1,0 +1,10 @@
+.idea/*
+!.idea/runConfigurations/
+.vertx/
+node_modules/*
+node
+npm-debug.log
+dist/
+*.iml
+.cache
+

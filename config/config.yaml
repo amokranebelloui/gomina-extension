@@ -1,0 +1,54 @@
+
+name: 'My Governance Dashboard'
+passwordsFile: 'config/pass.properties'
+usersFile: 'data/users.json'
+jiraUrl: 'http://localhost/jira'
+
+inventory:
+  projectsFile: 'data/projects.json'
+  componentsFile: 'data/components.json'
+  interactionsFile: 'data/interactions.json'
+  workFile: 'data/work.json'
+  hostsFile: 'data/hosts.json'
+  inventoryDir: 'data'
+  inventoryFilter: 'env\.(.*?)\.json'
+
+monitoring:
+  timeout: 4
+
+events:
+  internalMonitoring:
+    - id: 'internal'
+  elasticSearch:
+    - id: 'releases'
+      host: 'localhost'
+      port: 9200
+      envId: 'env'
+      instanceId: 'instance'
+    - id: 'logs'
+      host: 'localhost'
+      port: 9300
+
+jenkins:
+  servers:
+    - id: ''
+      location: 'http://default-jenkins/jenkins/'
+    - id: 'principal'
+      location: 'http://localhost:7111/jenkins/'
+    - id: 'local'
+      location: 'http://localhost:8081/job/'
+    - id: 'edge'
+      location: 'https://jenkins.io/edge/'
+    - id: 'apache'
+      location: 'https://builds.apache.org/job/'
+    
+sonar:
+  servers:
+    - id: ''
+      mode: 'http'
+      url: 'http://localhost:9000'
+    - id: 'main'
+      mode: 'http'
+      url: 'http://localhost:9000'
+    - id: 'dummy'
+      mode: 'dummy'
